@@ -15,7 +15,7 @@ from sklearn.tree import DecisionTreeRegressor
 def regression(pred = False):
 
     # On récupère le dataFrame
-    df = pd.read_csv("value.csv", sep=';')
+    df = pd.read_csv("./data/value.csv", sep=';')
     
   
 
@@ -26,5 +26,9 @@ def regression(pred = False):
 
     print(df.head())
     
+
+  
+
+
 
 regression()
