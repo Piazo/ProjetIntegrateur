@@ -1,5 +1,5 @@
 # Predicting the Quality-of-Service Degradation for Next-Generation Autonomous Cars
-![Logo Insa](https://international.insa-toulouse.fr/wp-content/uploads/2020/07/cropped-logo_insa_toulouse-5.png=250x150)
+![Logo Insa](https://international.insa-toulouse.fr/wp-content/uploads/2020/07/cropped-logo_insa_toulouse-5.png)
 
 ## Auteurs
 * **Alaverdov Antoine** [@Piazo](https://github.com/Piazo)
