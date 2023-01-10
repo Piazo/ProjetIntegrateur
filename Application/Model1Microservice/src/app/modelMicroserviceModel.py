@@ -10,19 +10,35 @@ app = Flask(__name__)
 
 class modelMicroserviceModel(_Object):
 
-    latencyList=[]
+    latencyList1=[]
+    latencyList2=[]
+    latencyList3=[]
     """cpu=0
     numNode=0
     ram=0"""
 
-    def __init__(self, latencyList1):
-        self.latencyList=latencyList1
+    def __init__(self, latencyList1, latencyList2, latencyList3):
+        self.latencyList1=latencyList1
+        self.latencyList2=latencyList2
+        self.latencyList3=latencyList3
 
-    def getLatencyList():
-        return self.latencyList
+    def getLatencyList1():
+        return self.latencyList1
 
-    def setLatencyList(latenceList1):
-        self.latencyList=latencyList1
+    def setLatencyList1(latenceList1):
+        self.latencyList1=latencyList1
+
+    def getLatencyList2():
+        return self.latencyList2
+
+    def setLatencyList2(latenceList2):
+    self.latencyList2=latencyList2
+
+    def getLatencyList3():
+        return self.latencyList3
+
+    def setLatencyList3(latenceList3):
+    self.latencyList3=latencyList3
 
     """
     def getCPU():
