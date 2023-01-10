@@ -9,18 +9,13 @@ import requests
 app = Flask(__name__)
 
 class orchestator:
-    @app.route("/app/bestnode/")
+    @app.route("/app/bestnode/", methods=['POST'])
     def getBestNode():
         # get json from url
-        jsonUrl = urlopen(url)
-        data = json.loads(jsonUrl.read())
-        #appeler fonction from dataprocessing
-        listNode= []
-        #appeler la fonction model pour chaque noeud
-        nodeLatency=[]
-        #for i in listNode:
-            #node_latency.append(getlatencymodel)
-        #get best node from resultprocessing
+        data = request.get_json(force=True)
+        #create a list with all the nodes
+        #jsonify each node + send to prediction microservice 
+        #send list of latencies to result processing microservice and return the best nodes
         bestNode=1
         return bestNode
 
