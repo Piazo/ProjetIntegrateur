@@ -1,9 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\DataProcessingMicroservice\\src",
-    "\\DataProcessingMicroservice\\src\\app"
+    "\\Model1Microservice",
+    "\\Model1Microservice\\src",
+    "\\Model1Microservice\\src\\app",
+    "\\OrchestratorMicroservice",
+    "\\OrchestratorMicroservice\\src",
+    "\\OrchestratorMicroservice\\src\\app"
   ],
-  "SelectedNode": "\\DataProcessingMicroservice",
+  "SelectedNode": "\\OrchestratorMicroservice\\src\\app\\orchestrator.py",
   "PreviewInSolutionExplorer": false
 }
