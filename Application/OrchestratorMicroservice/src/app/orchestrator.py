@@ -14,9 +14,17 @@ class orchestator:
         # get json from url
         data = request.get_json(force=True)
         #create a list with all the nodes
+        nodeList= data #pas sûr
+        #latency list
+        latencyList= []
         #jsonify each node + send to prediction microservice 
+        for i in len(nodeList):
+            node=jsonify(nodeList[i])
+            latencyList.append(requests.post('http://localhost:5000/predict/node=i+1', json=node))
+
         #send list of latencies to result processing microservice and return the best nodes
-        bestNode=1
+        latencies=jsonify(latencyList)
+        bestNode=requests.get('http://localhost:5001/getResult', json=latencies)
         return bestNode
 
     @app.route("/app/changezone/{int:zone}")

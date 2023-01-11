@@ -16,7 +16,7 @@ class modelMicroserviceControler:
         latency= abs((ram + cpu - numNode) * random.random())
         return latency
 
-    @app.route("/predict", methods=['POST'])
+    @app.route("/predict/<int:node>", methods=['POST'])
     def predict():
         node = request.get_json(force=True)
         latency= modelMicroserviceControler.predictedLatency(node["ram"], node["cpu"], node["numNode"])
