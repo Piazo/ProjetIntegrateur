@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Model1Microservice",
+    "\\Model1Microservice\\src",
+    "\\Model1Microservice\\src\\app",
+    "\\OrchestratorMicroservice",
+    "\\OrchestratorMicroservice\\src",
+    "\\OrchestratorMicroservice\\src\\app"
+  ],
+  "SelectedNode": "\\OrchestratorMicroservice\\src\\app\\orchestrator.py",
+  "PreviewInSolutionExplorer": false
+}

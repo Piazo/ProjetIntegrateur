@@ -1,0 +1,9 @@
+[[source]]
+url = "https://localhost"
+verify_ssl = true
+name = "app"
+
+[packages]
+flask = "*"
+flask-restful = "*"
+random = "*"
