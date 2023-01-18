@@ -9,18 +9,15 @@ import requests
 app = Flask(__name__)
 
 class orchestator:
-    @app.route("/app/bestnode/", methods=['POST'])
+    @app.route("/app/bestnode/", methods=['GET'])
     def getBestNode():
-        # get json from url
-        data = request.get_json(force=True)
-        #create a list with all the nodes
-        nodeList= data #pas sûr
-        #latency list
+       
         latencyList= []
         #jsonify each node + send to prediction microservice 
-        for i in len(nodeList):
-            node=jsonify(nodeList[i])
-            latencyList.append(requests.post('http://localhost:5000/predict/node=i+1', json=node))
+        for i in range(3):
+            latency= requests.get('http://localhost:5000/predict/node=i+1')
+            lat=latency.get_json(force=True) #tester si Ã§a marche
+            latencyList.append(requests.get(lat["latency1"]))
 
         #send list of latencies to result processing microservice and return the best nodes
         latencies=jsonify(latencyList)
@@ -29,8 +26,9 @@ class orchestator:
 
     @app.route("/app/changezone/{int:zone}")
     def changezone(zone: int):
-        # send messge to global orchestrator
-        return 0
+        # send messsge to global orchestrator
+        url=requests.get('http://localhost:4998/getUrl/{int:zone}')
+        return url
 
     @app.route("/app/getLatency", methods=['POST'])
     def getLatency():
@@ -41,8 +39,3 @@ class orchestator:
         res = requests.post('http://localhost:5000/predict', json=node)
         return res.text
 
-
-    @app.route("/app/traimodel/")
-    def trainModel():
-    
-        return "Trained"
