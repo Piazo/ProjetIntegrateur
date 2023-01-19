@@ -32,13 +32,13 @@ class modelMicroserviceModel(_Object):
         return self.latencyList2
 
     def setLatencyList2(latenceList2):
-    self.latencyList2=latencyList2
+        self.latencyList2=latencyList2
 
     def getLatencyList3():
         return self.latencyList3
 
     def setLatencyList3(latenceList3):
-    self.latencyList3=latencyList3
+        self.latencyList3=latencyList3
 
     """
     def getCPU():
