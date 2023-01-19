@@ -1,20 +1,14 @@
 FROM python:3.8
 
-RUN pip3 install pipenv
-
-ENV PROJECT_DIR /usr/src/applicationapi
-
-WORKDIR ${PROJECT_DIR}
-
-COPY Pipfile .
-# COPY Pipfile.lock .
-COPY . .
-
-# --ignore-pipfile
-RUN pipenv install --deploy 
-RUN pipenv install flask
-RUN pipenv install flask-restful
-
+# Create app directory
+WORKDIR /app
 EXPOSE 5000
 
-CMD ["pipenv", "run", "python", "main.py"]
+COPY . /app
+RUN pip install flask
+RUN pip install flask-restful
+
+ENV FLASK_APP "modelMicroserviceControler.py"
+
+ENTRYPOINT [ "flask" ]
+CMD ["run", "-h", "0.0.0.0"]
