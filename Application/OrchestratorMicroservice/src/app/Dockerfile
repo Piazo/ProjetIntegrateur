@@ -9,7 +9,7 @@ RUN pip install flask
 RUN pip install flask-restful
 RUN pip install requests
 
-ENV FLASK_APP "modelMicroserviceControler.py"
+ENV FLASK_APP "tester.py"
 
 ENTRYPOINT [ "flask" ]
 CMD ["run", "-h", "0.0.0.0"]

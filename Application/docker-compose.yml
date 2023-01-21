@@ -1,0 +1,40 @@
+version: '2'
+services:
+  model1:
+    image: mod
+    build: ./Model1Microservice/src/app
+    expose:
+      - "5000"
+    ports:
+      - "51001:5000"
+    volumes:
+      - .Model1Microservice/src/app:/code
+  model2:
+    image: mod
+    build: ./Model1Microservice/src/app
+    expose:
+      - "5000"
+    ports:
+      - "51002:5000"
+    volumes:
+      - .Model1Microservice/src/app:/code
+  model3:
+    image: mod
+    build: ./Model1Microservice/src/app
+    expose:
+      - "5000"
+    ports:
+      - "51003:5000"
+    volumes:
+      - .Model1Microservice/src/app:/code
+  orchestrator:
+    image: orch
+    build: ./OrchestratorMicroservice/src/app
+    ports:
+      - "50000:5000"
+    volumes:
+      - ./OrchestratorMicroservice/src/app:/code
+    links:
+      - model1
+      - model2
+      - model3
