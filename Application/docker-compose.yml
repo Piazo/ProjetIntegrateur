@@ -27,6 +27,15 @@ services:
       - "51003:5000"
     volumes:
       - .Model1Microservice/src/app:/code
+  processing:
+    image: proc
+    build: ./ResultProcessingMicroservice/src/app
+    expose:
+      - "5000"
+    ports:
+      - "50001:5000"
+    volumes:
+      - .ResultProcessingMicroservice/src/app:/code
   orchestrator:
     image: orch
     build: ./OrchestratorMicroservice/src/app
@@ -38,3 +47,4 @@ services:
       - model1
       - model2
       - model3
+      - processing
