@@ -5,7 +5,7 @@ WORKDIR /app
 EXPOSE 5000
 
 COPY . /app
-RUN apt install python3-flask
+RUN pip install flask
 RUN pip install flask-restful
 RUN pip install requests
 
