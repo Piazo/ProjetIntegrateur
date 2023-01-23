@@ -5,9 +5,9 @@ WORKDIR /app
 EXPOSE 5000
 
 COPY . /app
-RUN pip install flask
-RUN pip install flask-restful
-RUN pip install requests
+RUN pip --timeout=100 install flask
+RUN pip --timeout=100 install flask-restful
+RUN pip --timeout=100 install requests
 
 ENV FLASK_APP "orchestrator.py"
 
