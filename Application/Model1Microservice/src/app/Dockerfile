@@ -1,13 +1,13 @@
-FROM python:3.8
+FROM python:3.6
 
 # Create app directory
 WORKDIR /app
 EXPOSE 5000
 
 COPY . /app
-RUN pip install flask
-RUN pip install flask-restful
-RUN pip install requests
+RUN pip3 install flask
+RUN pip3 install flask-restful
+RUN pip3 install requests
 
 ENV FLASK_APP "modelMicroserviceControler.py"
 
