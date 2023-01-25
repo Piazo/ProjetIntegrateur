@@ -1,4 +1,4 @@
-import pymongo
+
 from urllib.request import urlopen
 from pymongo import MongoClient
 from flask import Flask, request
@@ -7,10 +7,11 @@ import json
 app = Flask(__name__)
 
 class dataBase:
-    @app.route("/BDDMicroservice/getDB")
+    @app.route("/getDB")
     def get_latencies_database():
         
         client = MongoClient(host='localhost', port=27017)
+        #mongodb://mongodb:27017
         db=client['database'] 
         node1_coll = db['node1_coll'] 
         node2_coll = db['node2_coll'] 
@@ -19,8 +20,8 @@ class dataBase:
         latencies2= []
         latencies3= []
         last_six1 = node1_coll.find().sort("_id", -1).limit(6)
-        last_six2 = node1_coll.find().sort("_id", -1).limit(6)
-        last_six3 = node1_coll.find().sort("_id", -1).limit(6)
+        last_six2 = node2_coll.find().sort("_id", -1).limit(6)
+        last_six3 = node3_coll.find().sort("_id", -1).limit(6)
         
         for doc in last_six1:
             latencies1.append(doc.get("Moyenne"))
@@ -36,7 +37,7 @@ class dataBase:
         return json_data
         
 
-    @app.route("/BDDMicroservice/insert", methods=['POST']) 
+    @app.route("/insert", methods=['POST']) 
     def insert_database():
         json_data= request.get_json(force=True)
         node = str(json_data.get('node'))

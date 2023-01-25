@@ -8,25 +8,25 @@ services:
     ports:
       - "51001:5000"
     volumes:
-      - .Model1Microservice/src/app:/code
+      - ./Model1Microservice/src/app:/code
   model2:
     image: mod
-    build: ./Model1Microservice/src/app
+    build: ./Model2Microservice/src/app
     expose:
       - "5000"
     ports:
       - "51002:5000"
     volumes:
-      - .Model1Microservice/src/app:/code
+      - ./Model2Microservice/src/app:/code
   model3:
     image: mod
-    build: ./Model1Microservice/src/app
+    build: ./Model3Microservice/src/app
     expose:
       - "5000"
     ports:
       - "51003:5000"
     volumes:
-      - .Model1Microservice/src/app:/code
+      - ./Model3Microservice/src/app:/code
   processing:
     image: proc
     build: ./ResultProcessingMicroservice/src/app
@@ -35,7 +35,16 @@ services:
     ports:
       - "50001:5000"
     volumes:
-      - .ResultProcessingMicroservice/src/app:/code
+      - ./ResultProcessingMicroservice/src/app:/code
+  database:
+    image: bdd
+    build: ./BDD/src/app
+    expose:
+      - "5000"
+    ports:
+      - "50005:5000"
+    volumes:
+      - ./BDD/src/app:/code
   orchestrator:
     image: orch
     build: ./OrchestratorMicroservice/src/app
@@ -48,3 +57,4 @@ services:
       - model2
       - model3
       - processing
+      - database

@@ -1,29 +1,21 @@
 from flask import Flask, jsonify, request
 import requests
-import tensorflow as tf
-import pandas as pd
 
 
 app = Flask(__name__)
 
 class modelMicroserviceControler:
-
     @app.route("/test", methods=['GET'])
     def test(): 
         print("[MOD1] test")
         return "letsgooooo, je suis la ((:"
     
-    def predictedLatency(liste: list): 
-        model = tf.keras.models.load_model('./Node1')
-        latences=liste
-        df=pd.DataFrame()
-        df['val'] = latences
-        df['median'] = df['val'].rolling(3).median()
-        df['mean'] = df['val'].rolling(4).mean()
-        df = df.drop(columns=['val'])
-        df.dropna(inplace=True)
-        val = df.values.tolist()
-        return model.predict([val])
+    def predictedLatency(list: list): # add actual model here, atm just returns average
+        sum = 0.0
+        for val in list:
+            sum += val
+        mean = sum / len(list)
+        return mean
     
     @app.route("/predict", methods=['POST'])
     def predicts():

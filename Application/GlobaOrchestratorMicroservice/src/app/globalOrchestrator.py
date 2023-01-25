@@ -13,11 +13,11 @@ class globalOrchestrator:
         zone = args.get('zone')
         if (zone=="1"):
             #l'orchestrator renvoie au local orchestrator l'url du local orchestrator 1 
-            newZone= "http://localhost:50002//app/bestnode/"
+            latency= requests.get('http://orch:5000/app/bestnode/')
         elif (zone=="2"):
             #l'orchestrator renvoie au local orchestrator l'url du local orchestrator 2 
-            newZone= "http://localhost:50002//app/bestnode/"
+            latency= requests.get('http://orch:5000/app/bestnode/')
         elif (zone=="3"):
             #l'orchestrator renvoie au local orchestrator l'url du local orchestrator 3 
-            newZone= "http://localhost:50002//app/bestnode/"
-        return newZone
+            latency= requests.get('http://orch:5000/app/bestnode/')
+        return latency

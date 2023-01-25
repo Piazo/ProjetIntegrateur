@@ -7,14 +7,13 @@ import pandas as pd
 app = Flask(__name__)
 
 class modelMicroserviceControler:
-
     @app.route("/test", methods=['GET'])
     def test(): 
         print("[MOD1] test")
         return "letsgooooo, je suis la ((:"
     
-    def predictedLatency(liste: list): 
-        model = tf.keras.models.load_model('./Node1')
+    def predictedLatency(liste: list): # add actual model here, atm just returns average
+        model = tf.keras.models.load_model('./Node3')
         latences=liste
         df=pd.DataFrame()
         df['val'] = latences

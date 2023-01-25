@@ -8,10 +8,9 @@ COPY . /app
 RUN pip3 install flask
 RUN pip3 install flask-restful
 RUN pip3 install requests
-RUN pip3 install tensorflow
-RUN pip3 install pandas
+RUN python3 -m pip install pymongo
 
-ENV FLASK_APP "modelMicroserviceControler.py"
+ENV FLASK_APP "dataBase.py"
 
 ENTRYPOINT [ "flask" ]
 CMD ["run", "-h", "0.0.0.0"]
